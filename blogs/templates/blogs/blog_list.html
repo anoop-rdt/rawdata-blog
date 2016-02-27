@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+ <div class="row">
+  {% for blog in object_list %}
+    <div class="panel panel-default">
+ 		<div class="panel-heading">{{ blog.title }} - {{ blog.posted|date }}</div>
+ 		<div class="panel-body">{{blog.body|removetags:"img"|safe|truncatechars:200}}</div>
+ 	</div>
+ {% endfor %}
+ </div>
+</div>
+{% endblock %}
