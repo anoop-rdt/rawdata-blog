@@ -1,3 +1,6 @@
 <h1>{{ object.title }}</h1>
+{% for category in object.category.all %}
+  {{ category }}
+{% endfor %}
 <p>{{ object.body|safe }}</p>
 <p>Published: {{ object.posted|date }}</p>
