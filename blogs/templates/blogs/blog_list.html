@@ -5,7 +5,15 @@
   {% for blog in object_list %}
     <div class="panel panel-default">
  		<div class="panel-heading">{{ blog.title }} - {{ blog.posted|date }}</div>
+		<div class="image-div list-inner">
+		    <a href="#">
+		         <img src={{ MEDIA_URL }}{{ blog.image.url}} class="img-responsive">
+		    </a>
+		</div>
  		<div class="panel-body">{{blog.body|removetags:"img"|safe|truncatechars:200}}</div>
+	 	 {% for category in blog.category.all %}
+			<a href="#" class="tag">{{category.title}}</a>
+		 {% endfor %}
  	</div>
  {% endfor %}
  </div>
